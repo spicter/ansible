@@ -6,10 +6,10 @@ inventory = $1
 roles_path = ../roles
 
 [ssh_connection]
-ssh_args = -o ControlMaster=auto -o ControlPersist=60s -F ssh.config
+ssh_args = -o ControlMaster=auto -o ControlPersist=60s -F ansible_ssh.config
 EOF
 
-cat > ssh.config << EOF
+cat > ansible_ssh.config << EOF
 Host *
     User core
     UserKnownHostsFile /dev/null
