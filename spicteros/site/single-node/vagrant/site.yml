@@ -1,0 +1,10 @@
+---
+
+- name: install kubernetes (etcd, flannel, master, nodes)
+  hosts: coreos
+  gather_facts: False
+  roles: 
+    - local-tasks
+    - coreos-bootstrap
+    - system-layer
+  become: true
