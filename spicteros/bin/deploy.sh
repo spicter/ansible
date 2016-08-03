@@ -11,25 +11,25 @@ function deploy_single_local () {
   if [ $command = 'clean' ]; then
      cd $home_dir
      echo "******* fire up vagrant"
-     vagrant destroy --force
+ #    vagrant destroy --force
      vagrant up
   fi
 }
 
 case $target in
-"single-local")
+"local-single")
    deploy_single_local
    exit 0
    ;;
-"single-remote")
+"remote-single")
    message="found"
    exit 0
    ;;
-"multi-local")
+"local-multi")
    message="found"
    exit 0
    ;;
-"multi-remote")
+"remote-multi")
    message="found"
    exit 0
    ;;
