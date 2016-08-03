@@ -1,6 +1,15 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+NODE_IP = "172.12.8.100"
+CLUSTER_IP="10.3.0.1"
+
+NODE_MEMORY_SIZE = 8192
+
+system("mkdir -p ssl && ./../../../lib/init-ssl-ca ssl") or abort ("failed generating SSL CA artifacts")
+system("./../../../lib/init-ssl ssl apiserver controller IP.1=#{NODE_IP},IP.2=#{CLUSTER_IP}") or abort ("failed generating SSL certificate artifacts")
+system("./../../../lib/init-ssl ssl admin kube-admin") or abort("failed generating admin SSL artifacts")
+
 Vagrant.configure("2") do |config|
 
   config.vm.box = "coreos-alpha"
@@ -14,7 +23,7 @@ Vagrant.configure("2") do |config|
     config.vbguest.auto_update = false
   end
   
-  config.vm.network :private_network, ip: "172.12.8.100"
+  config.vm.network :private_network, ip: NODE_IP
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
       vb.gui = false
@@ -22,7 +31,7 @@ Vagrant.configure("2") do |config|
       vb.check_guest_additions = false
       vb.functional_vboxsf     = false  
     # Customize the amount of memory on the VM:
-      vb.memory = "8192"
+      vb.memory = NODE_MEMORY_SIZE
   end
   
   config.vm.hostname = "single01.spicter.com"

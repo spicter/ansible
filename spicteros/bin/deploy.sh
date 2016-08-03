@@ -3,13 +3,16 @@
 target="$1"      # describe the target
 command="$2"     # describe the command for the target. only used for vagrant
 
-
 function deploy_single_local () {
   
-  sh ../lib/generate_ssh_config ../site/single-node/vagrant/hosts
+  local home_dir='../site/single-node/vagrant'
+  sh ../lib/generate_ssh_config $home_dir"/hosts"
   
-  if [ $command = 'clean' ]
-     then echo "clean"
+  if [ $command = 'clean' ]; then
+     cd $home_dir
+     echo "******* fire up vagrant"
+     vagrant destroy --force
+     vagrant up
   fi
 }
 
