@@ -87,9 +87,10 @@ function init_templates {
         mkdir -p $(dirname $TEMPLATE)
         cat << EOF > $TEMPLATE
 [Service]
-Environment=http_proxy=http://proxy.ct-dmz.cardtech.de:8080
-Environment=https_proxy=http://proxy.ct-dmz.cardtech.de:8080
-Environment=no_proxy=localhost,127.0.0.1
+{{ http_proxy }}
+{{ https_proxy }}
+{{ no_proxy }}
+
 ExecStartPre=/usr/bin/mkdir -p /etc/kubernetes/manifests
 
 Environment=KUBELET_VERSION=${K8S_VER}
@@ -124,9 +125,9 @@ Requires=network-online.target
 After=network-online.target
 
 [Service]
-Environment=http_proxy=http://proxy.ct-dmz.cardtech.de:8080
-Environment=https_proxy=http://proxy.ct-dmz.cardtech.de:8080
-Environment=no_proxy=localhost,127.0.0.1
+{{ http_proxy }}
+{{ https_proxy }}
+{{ no_proxy }}
 
 Slice=machine.slice
 Environment=CALICO_DISABLE_FILE_LOGGING=true
@@ -758,9 +759,9 @@ EOF
         mkdir -p $(dirname $TEMPLATE)
         cat << EOF > $TEMPLATE
 [Service]
-Environment=http_proxy=http://proxy.ct-dmz.cardtech.de:8080
-Environment=https_proxy=http://proxy.ct-dmz.cardtech.de:8080
-Environment=no_proxy=localhost,127.0.0.1
+{{ http_proxy }}
+{{ https_proxy }}
+{{ no_proxy }}
 
 ExecStartPre=/usr/bin/ln -sf /etc/flannel/options.env /run/flannel/options.env
 EOF

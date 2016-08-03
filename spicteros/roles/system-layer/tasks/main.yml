@@ -5,7 +5,9 @@
 - unarchive: src=ssl/controller.tar dest=/etc/kubernetes/ssl
 
 - name: copy installation script
-  copy: src=user-data dest=/tmp/vagrantfile-user-data
+#  copy: src=user-data dest=/tmp/vagrantfile-user-data
+  template: src=user-data.j2 dest=/tmp/vagrantfile-user-data
   
 - command: mv /tmp/vagrantfile-user-data /var/lib/coreos-vagrant/
   
+- template: src=user-data.j2 dest=/tmp/file.conf
