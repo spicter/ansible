@@ -1,14 +1,11 @@
-
-- name: copy certificates
-  copy: src=ssl/controller.tar dest=/tmp/ssl.tar
-- command: mkdir -p /etc/kubernetes/ssl
-- command: tar -C /etc/kubernetes/ssl -xf /tmp/ssl.tar
+ 
+- name: Creates directory
+  file: path=/etc/kubernetes/ssl state=directory
+  
+- unarchive: src=ssl/controller.tar dest=/etc/kubernetes/ssl
 
 - name: copy installation script
   copy: src=user-data dest=/tmp/vagrantfile-user-data
+  
 - command: mv /tmp/vagrantfile-user-data /var/lib/coreos-vagrant/
   
-- name: start etcd
-  raw: systemctl restart etcd
-# - name: install kube
-#   script: user-data.sh

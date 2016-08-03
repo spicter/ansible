@@ -6,15 +6,20 @@ command="$2"     # describe the command for the target. only used for vagrant
 function deploy_single_local () {
   
   local home_dir='../site/single-node/vagrant'
+  local bin_dir=$(pwd)
   sh ../lib/generate_ssh_config $home_dir"/hosts"
   
-  if [ $command = 'clean' ]; then
-     cd $home_dir
-     echo "******* destroy vm"
-     vagrant destroy --force
-     echo "******* fire up new vm"
-     vagrant up
+  if [ -n "$command" ]; then 
+     if [ "$command" = 'clean' ]; then
+        cd $home_dir
+        echo "******* destroy vm"
+        vagrant destroy --force
+        echo "******* fire up new vm"
+        vagrant up
+     fi
   fi
+  cd $bin_dir
+  ansible-playbook $home_dir"/site.yml"
 }
 
 case $target in

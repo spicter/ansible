@@ -12,6 +12,12 @@ system("./../../../lib/init-ssl ssl admin kube-admin") or abort("failed generati
 
 Vagrant.configure("2") do |config|
 
+  if Vagrant.has_plugin?("vagrant-proxyconf")
+     config.proxy.http  =  "http://proxy.ct-dmz.cardtech.de:8080"
+     config.proxy.https =  "http://proxy.ct-dmz.cardtech.de:8080"
+     config.proxy.no_proxy = "localhost,127.0.0.1"
+  end
+  
   config.vm.box = "coreos-alpha"
   config.vm.box_version = ">= 766.0.0"
   config.vm.box_url = "http://alpha.release.core-os.net/amd64-usr/current/coreos_production_vagrant.json"
