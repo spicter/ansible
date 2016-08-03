@@ -10,8 +10,9 @@ function deploy_single_local () {
   
   if [ $command = 'clean' ]; then
      cd $home_dir
-     echo "******* fire up vagrant"
- #    vagrant destroy --force
+     echo "******* destroy vm"
+     vagrant destroy --force
+     echo "******* fire up new vm"
      vagrant up
   fi
 }
