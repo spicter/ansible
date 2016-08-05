@@ -1,5 +1,5 @@
 [all]
-172.12.8.100
+single01 ansible_host=144.76.186.4 ansible_port=2014 ansible_user=core
 
 [all:vars]
 # http_proxy = Environment=http_proxy=http://proxy.ct-dmz.cardtech.de:8080
@@ -8,7 +8,7 @@
 
 http_proxy = 
 https_proxy = 
-no_proxy = 
+no_proxy =
 
-NODE_IP = "172.12.8.100"
+NODE_IP = "10.2.1.14"
 CLUSTER_IP = "10.3.0.1"

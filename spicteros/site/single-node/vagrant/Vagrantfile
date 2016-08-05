@@ -6,10 +6,6 @@ CLUSTER_IP="10.3.0.1"
 
 NODE_MEMORY_SIZE = 8192
 
-system("mkdir -p ssl && ./../../../lib/init-ssl-ca ssl") or abort ("failed generating SSL CA artifacts")
-system("./../../../lib/init-ssl ssl apiserver controller IP.1=#{NODE_IP},IP.2=#{CLUSTER_IP}") or abort ("failed generating SSL certificate artifacts")
-system("./../../../lib/init-ssl ssl admin kube-admin") or abort("failed generating admin SSL artifacts")
-
 Vagrant.configure("2") do |config|
 
   if Vagrant.has_plugin?("vagrant-proxyconf")

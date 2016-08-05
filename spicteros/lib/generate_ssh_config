@@ -4,18 +4,3 @@ cat > ansible.cfg << EOF
 [defaults]
 inventory = $1
 roles_path = ../roles
-
-[ssh_connection]
-ssh_args = -o ControlMaster=auto -o ControlPersist=60s -F ansible_ssh.config
-EOF
-
-cat > ansible_ssh.config << EOF
-Host *
-    User core
-    UserKnownHostsFile /dev/null
-    StrictHostKeyChecking no
-    PasswordAuthentication no
-    IdentityFile $HOME/.vagrant.d/insecure_private_key
-    IdentitiesOnly yes
-    LogLevel FATAL
-EOF

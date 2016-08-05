@@ -1,13 +1,34 @@
- 
+- name: create certificats folder
+  become: no
+  local_action: command mkdir -p {{ home_dir }}ssl
+  
+- name: create ca certificats
+  become: no
+  local_action: command ./../lib/init-ssl-ca {{ home_dir }}ssl 
+  
+- name: create api and controller certificats
+  become: no
+  local_action: command ./../lib/init-ssl {{ home_dir }}ssl apiserver controller IP.1={{ NODE_IP }},IP.2={{ CLUSTER_IP }}
+    
+- name: create admin and kube-admin certificats
+  become: no
+  local_action: command ./../lib/init-ssl {{ home_dir }}ssl admin kube-admin
+   
 - name: Creates directory
   file: path=/etc/kubernetes/ssl state=directory
   
 - unarchive: src=ssl/controller.tar dest=/etc/kubernetes/ssl
 
+- name: set /etc/environment
+  template: src=environment.j2 dest=/etc/environment
+  
 - name: copy installation script
-#  copy: src=user-data dest=/tmp/vagrantfile-user-data
-  template: src=user-data.j2 dest=/tmp/vagrantfile-user-data
+  template: src=user-data.j2 dest=/tmp/user-data
+#  template: src=user-data.j2 dest=/tmp/user_data
   
-- command: mv /tmp/vagrantfile-user-data /var/lib/coreos-vagrant/
-  
-- template: src=user-data.j2 dest=/tmp/file.conf
+# - command: mv /tmp/vagrantfile-user-data /var/lib/coreos-vagrant/
+# - command: mv /tmp/user_data /var/lib/coreos-install/
+
+- name: run install script
+  become: yes
+  command: coreos-cloudinit --from-file=/tmp/user-data
