@@ -1,3 +1,6 @@
+---
+
+# create all certificates locally
 - name: create certificats folder
   become: no
   local_action: command mkdir -p {{ home_dir }}ssl
@@ -14,21 +17,59 @@
   become: no
   local_action: command ./../lib/init-ssl {{ home_dir }}ssl admin kube-admin
    
+ # now transfer certificates  
 - name: Creates directory
   file: path=/etc/kubernetes/ssl state=directory
   
 - unarchive: src=ssl/controller.tar dest=/etc/kubernetes/ssl
 
+# set required environment
 - name: set /etc/environment
   template: src=environment.j2 dest=/etc/environment
   
-- name: copy installation script
+# and install kubernetes
+- name: copy kubernetes installation script
   template: src=user-data.j2 dest=/tmp/user-data
-#  template: src=user-data.j2 dest=/tmp/user_data
-  
-# - command: mv /tmp/vagrantfile-user-data /var/lib/coreos-vagrant/
-# - command: mv /tmp/user_data /var/lib/coreos-install/
 
 - name: run install script
   become: yes
   command: coreos-cloudinit --from-file=/tmp/user-data
+  
+# now install and configure kubectl  
+- name: install kubectl
+  become: yes
+  copy: src=kubectl dest=/opt/bin/kubectl mode=0755
+  
+- name: configure kubectl
+  template: src=kubeconfig.j2 dest=/tmp/kubeconfig
+  environment: 
+    KUBECONFIG: :/tmp/kubeconfig
+- command: kubectl config use-context single
+
+# install helmc and our helm repository 
+- name: install helmc
+  copy: src=helmc dest=/opt/bin/helmc mode=0755
+  
+- name: check if repository already exist
+  stat: path=/opt/helm
+  register: dir
+  
+- name: create the helm folder
+  command: mkdir -p /opt/helm
+  when: dir.stat.islnk is not defined
+  
+- name: copy our charts repository
+  copy: src=helm/ dest=/opt/helm/
+  when: dir.stat.islnk is not defined
+  
+- name: update helm repositories
+  command: helmc --home /opt/helm update 
+  
+- name: install our first service
+  become: yes
+  command: helmc --home /opt/helm install kube-dashboard
+  ignore_errors: yes
+
+# and setup the kubernetes proxy
+# - name: start a kube proxy on port 80 in background
+#   command: "kubectl proxy --address= {{ NODE_IP }} --port=80 &"
