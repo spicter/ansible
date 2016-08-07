@@ -32,11 +32,16 @@
 # install helmc and our helm repository 
 - name: install helmc
   copy: src=helmc dest=/opt/bin/helmc mode=0755
+
+- name: check if repository already exist
+  stat: path=/opt/helm
+  register: dir
   
 - name: install helm repository
   command: git clone https://github.com/spicter/helm.git
   args: 
     chdir: /opt
+  when: dir.stat.islnk is not defined
   
 - name: update helm repositories
   command: helmc --home /opt/helm update 
@@ -51,5 +56,5 @@
   
 # install all kube-system services
 - name: install all kube-system services
-  include: system-services
+  include: system-services.yml
 

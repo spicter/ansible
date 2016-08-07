@@ -1,9 +1,9 @@
 ---
 
-- name: install elastic-kube
-  become: yes
-  command: helmc --home /opt/helm install elastic-kube
-  ignore_errors: yes
+#- name: install elastic-kube
+#  become: yes
+#  command: helmc --home /opt/helm install elastic-kube
+#  ignore_errors: yes
 
 - name: install kube-dashboard
   become: yes
