@@ -50,17 +50,10 @@
 - name: install helmc
   copy: src=helmc dest=/opt/bin/helmc mode=0755
   
-- name: check if repository already exist
-  stat: path=/opt/helm
-  register: dir
-  
-- name: create the helm folder
-  command: mkdir -p /opt/helm
-  when: dir.stat.islnk is not defined
-  
-- name: copy our charts repository
-  copy: src=helm/ dest=/opt/helm/
-  when: dir.stat.islnk is not defined
+- name: install helm repository
+  command: git clone https://github.com/spicter/helm.git
+  args: 
+    chdir: /opt
   
 - name: update helm repositories
   command: helmc --home /opt/helm update 
