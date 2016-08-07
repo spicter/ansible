@@ -1,3 +1,4 @@
 /coreos
 **/.vagrant
 **/helm/**
+.DS_Store

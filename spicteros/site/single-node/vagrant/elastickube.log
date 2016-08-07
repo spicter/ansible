@@ -1,0 +1,194 @@
+[0;32mKubernetes master[0m is running at [0;33mhttps://172.12.8.100:443[0m
+[0;32mHeapster[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/heapster[0m
+[0;32mKubeDNS[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kube-dns[0m
+[0;32mkubernetes-dashboard[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard[0m
+Error from server: services "elastickube-server" not found
+services/elastickube-server
+Error from server: services "elastickube-mongo" not found
+services/elastickube-mongo
+Error from server: replicationcontrollers "elastickube-mongo" not found
+replicationcontrollers/elastickube-mongo
+[0;32mKubernetes master[0m is running at [0;33mhttps://172.12.8.100:443[0m
+[0;32mHeapster[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/heapster[0m
+[0;32mKubeDNS[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kube-dns[0m
+[0;32mkubernetes-dashboard[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard[0m
+NAME                 LABELS                    SELECTOR                  IP(S)       PORT(S)
+elastickube-server   name=elastickube-server   name=elastickube-server   10.3.0.46   80/TCP
+NAME                LABELS                   SELECTOR                 IP(S)      PORT(S)
+elastickube-mongo   name=elastickube-mongo   name=elastickube-mongo   10.3.0.4   27017/TCP
+CONTROLLER          CONTAINER(S)        IMAGE(S)   SELECTOR                 REPLICAS
+elastickube-mongo   elastickube-mongo   mongo      name=elastickube-mongo   1
+[0;32mKubernetes master[0m is running at [0;33mhttps://172.12.8.100:443[0m
+[0;32mHeapster[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/heapster[0m
+[0;32mKubeDNS[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kube-dns[0m
+[0;32mkubernetes-dashboard[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard[0m
+NAME                 LABELS                    SELECTOR                  IP(S)       PORT(S)
+elastickube-server   name=elastickube-server   name=elastickube-server   10.3.0.46   80/TCP
+NAME                LABELS                   SELECTOR                 IP(S)      PORT(S)
+elastickube-mongo   name=elastickube-mongo   name=elastickube-mongo   10.3.0.4   27017/TCP
+CONTROLLER          CONTAINER(S)        IMAGE(S)   SELECTOR                 REPLICAS
+elastickube-mongo   elastickube-mongo   mongo      name=elastickube-mongo   1
+[0;32mKubernetes master[0m is running at [0;33mhttps://172.12.8.100:443[0m
+[0;32mHeapster[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/heapster[0m
+[0;32mKubeDNS[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kube-dns[0m
+[0;32mkubernetes-dashboard[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard[0m
+NAME                 LABELS                    SELECTOR                  IP(S)       PORT(S)
+elastickube-server   name=elastickube-server   name=elastickube-server   10.3.0.46   80/TCP
+NAME                LABELS                   SELECTOR                 IP(S)      PORT(S)
+elastickube-mongo   name=elastickube-mongo   name=elastickube-mongo   10.3.0.4   27017/TCP
+CONTROLLER          CONTAINER(S)        IMAGE(S)   SELECTOR                 REPLICAS
+elastickube-mongo   elastickube-mongo   mongo      name=elastickube-mongo   1
+[0;32mKubernetes master[0m is running at [0;33mhttps://172.12.8.100:443[0m
+[0;32mHeapster[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/heapster[0m
+[0;32mKubeDNS[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kube-dns[0m
+[0;32mkubernetes-dashboard[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard[0m
+NAME                 LABELS                    SELECTOR                  IP(S)       PORT(S)
+elastickube-server   name=elastickube-server   name=elastickube-server   10.3.0.46   80/TCP
+NAME                LABELS                   SELECTOR                 IP(S)      PORT(S)
+elastickube-mongo   name=elastickube-mongo   name=elastickube-mongo   10.3.0.4   27017/TCP
+CONTROLLER          CONTAINER(S)        IMAGE(S)   SELECTOR                 REPLICAS
+elastickube-mongo   elastickube-mongo   mongo      name=elastickube-mongo   1
+[0;32mKubernetes master[0m is running at [0;33mhttps://172.12.8.100:443[0m
+[0;32mHeapster[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/heapster[0m
+[0;32mKubeDNS[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kube-dns[0m
+[0;32mkubernetes-dashboard[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard[0m
+NAME                 LABELS                    SELECTOR                  IP(S)       PORT(S)
+elastickube-server   name=elastickube-server   name=elastickube-server   10.3.0.46   80/TCP
+NAME                LABELS                   SELECTOR                 IP(S)      PORT(S)
+elastickube-mongo   name=elastickube-mongo   name=elastickube-mongo   10.3.0.4   27017/TCP
+CONTROLLER          CONTAINER(S)        IMAGE(S)   SELECTOR                 REPLICAS
+elastickube-mongo   elastickube-mongo   mongo      name=elastickube-mongo   1
+[0;32mKubernetes master[0m is running at [0;33mhttps://172.12.8.100:443[0m
+[0;32mHeapster[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/heapster[0m
+[0;32mKubeDNS[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kube-dns[0m
+[0;32mkubernetes-dashboard[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard[0m
+NAME                 LABELS                    SELECTOR                  IP(S)       PORT(S)
+elastickube-server   name=elastickube-server   name=elastickube-server   10.3.0.46   80/TCP
+NAME                LABELS                   SELECTOR                 IP(S)      PORT(S)
+elastickube-mongo   name=elastickube-mongo   name=elastickube-mongo   10.3.0.4   27017/TCP
+CONTROLLER          CONTAINER(S)        IMAGE(S)   SELECTOR                 REPLICAS
+elastickube-mongo   elastickube-mongo   mongo      name=elastickube-mongo   1
+[0;32mKubernetes master[0m is running at [0;33mhttps://172.12.8.100:443[0m
+[0;32mHeapster[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/heapster[0m
+[0;32mKubeDNS[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kube-dns[0m
+[0;32mkubernetes-dashboard[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard[0m
+NAME                 LABELS                    SELECTOR                  IP(S)       PORT(S)
+elastickube-server   name=elastickube-server   name=elastickube-server   10.3.0.46   80/TCP
+NAME                LABELS                   SELECTOR                 IP(S)      PORT(S)
+elastickube-mongo   name=elastickube-mongo   name=elastickube-mongo   10.3.0.4   27017/TCP
+CONTROLLER          CONTAINER(S)        IMAGE(S)   SELECTOR                 REPLICAS
+elastickube-mongo   elastickube-mongo   mongo      name=elastickube-mongo   1
+[0;32mKubernetes master[0m is running at [0;33mhttps://172.12.8.100:443[0m
+[0;32mHeapster[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/heapster[0m
+[0;32mKubeDNS[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kube-dns[0m
+[0;32mkubernetes-dashboard[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard[0m
+NAME                 LABELS                    SELECTOR                  IP(S)       PORT(S)
+elastickube-server   name=elastickube-server   name=elastickube-server   10.3.0.46   80/TCP
+NAME                LABELS                   SELECTOR                 IP(S)      PORT(S)
+elastickube-mongo   name=elastickube-mongo   name=elastickube-mongo   10.3.0.4   27017/TCP
+CONTROLLER          CONTAINER(S)        IMAGE(S)   SELECTOR                 REPLICAS
+elastickube-mongo   elastickube-mongo   mongo      name=elastickube-mongo   1
+[0;32mKubernetes master[0m is running at [0;33mhttps://172.12.8.100:443[0m
+[0;32mHeapster[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/heapster[0m
+[0;32mKubeDNS[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kube-dns[0m
+[0;32mkubernetes-dashboard[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard[0m
+Error from server: services "elastickube-server" not found
+services/elastickube-server
+Error from server: services "elastickube-mongo" not found
+services/elastickube-mongo
+Error from server: replicationcontrollers "elastickube-mongo" not found
+replicationcontrollers/elastickube-mongo
+Pods Status:	1 Running / 0 Waiting / 0 Succeeded / 0 Failed
+Error from server: replicationcontrollers "elastickube-server" not found
+replicationcontrollers/elastickube-server
+Pods Status:	1 Running / 0 Waiting / 0 Succeeded / 0 Failed
+IP:			10.3.0.140
+[0;32mKubernetes master[0m is running at [0;33mhttps://172.12.8.100:443[0m
+[0;32mHeapster[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/heapster[0m
+[0;32mKubeDNS[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kube-dns[0m
+[0;32mkubernetes-dashboard[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard[0m
+NAME                 LABELS                    SELECTOR                  IP(S)        PORT(S)
+elastickube-server   name=elastickube-server   name=elastickube-server   10.3.0.140   80/TCP
+NAME                LABELS                   SELECTOR                 IP(S)       PORT(S)
+elastickube-mongo   name=elastickube-mongo   name=elastickube-mongo   10.3.0.40   27017/TCP
+CONTROLLER          CONTAINER(S)        IMAGE(S)   SELECTOR                 REPLICAS
+elastickube-mongo   elastickube-mongo   mongo      name=elastickube-mongo   1
+Pods Status:	1 Running / 0 Waiting / 0 Succeeded / 0 Failed
+CONTROLLER           CONTAINER(S)              IMAGE(S)                                    SELECTOR                  REPLICAS
+elastickube-server   elastickube-api           elasticbox/elastickube-api:latest           name=elastickube-server   1
+                     elastickube-charts        elasticbox/elastickube-charts:latest                                  
+                     elastickube-nginx         elasticbox/elastickube-nginx:latest                                   
+                     elastickube-diagnostics   elasticbox/elastickube-diagnostics:latest                             
+Pods Status:	1 Running / 0 Waiting / 0 Succeeded / 0 Failed
+IP:			10.3.0.140
+[0;32mKubernetes master[0m is running at [0;33mhttps://172.12.8.100:443[0m
+[0;32mHeapster[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/heapster[0m
+[0;32mKubeDNS[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kube-dns[0m
+[0;32mkubernetes-dashboard[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard[0m
+Error from server: services "elastickube-server" not found
+You have exposed your service on an external port on all nodes in your
+cluster.  If you want to expose this service to the external internet, you may
+need to set up firewall rules for the service port(s) (tcp:32618) to serve traffic.
+
+See http://releases.k8s.io/HEAD/docs/services-firewalls.md for more details.
+services/elastickube-server
+Error from server: services "elastickube-mongo" not found
+services/elastickube-mongo
+Error from server: replicationcontrollers "elastickube-mongo" not found
+replicationcontrollers/elastickube-mongo
+[0;32mKubernetes master[0m is running at [0;33mhttps://172.12.8.100:443[0m
+[0;32mHeapster[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/heapster[0m
+[0;32mKubeDNS[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kube-dns[0m
+[0;32mkubernetes-dashboard[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard[0m
+NAME                 LABELS                    SELECTOR                  IP(S)       PORT(S)
+elastickube-server   name=elastickube-server   name=elastickube-server   10.3.0.73   80/TCP
+NAME                LABELS                   SELECTOR                 IP(S)        PORT(S)
+elastickube-mongo   name=elastickube-mongo   name=elastickube-mongo   10.3.0.248   27017/TCP
+CONTROLLER          CONTAINER(S)        IMAGE(S)   SELECTOR                 REPLICAS
+elastickube-mongo   elastickube-mongo   mongo      name=elastickube-mongo   1
+Pods Status:	1 Running / 0 Waiting / 0 Succeeded / 0 Failed
+Error from server: replicationcontrollers "elastickube-server" not found
+replicationcontrollers/elastickube-server
+Pods Status:	1 Running / 0 Waiting / 0 Succeeded / 0 Failed
+IP:			10.3.0.73
+[0;32mKubernetes master[0m is running at [0;33mhttps://172.12.8.100:443[0m
+[0;32mHeapster[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/heapster[0m
+[0;32mKubeDNS[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kube-dns[0m
+[0;32mkubernetes-dashboard[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard[0m
+NAME                 LABELS                    SELECTOR                  IP(S)       PORT(S)
+elastickube-server   name=elastickube-server   name=elastickube-server   10.3.0.73   80/TCP
+NAME                LABELS                   SELECTOR                 IP(S)        PORT(S)
+elastickube-mongo   name=elastickube-mongo   name=elastickube-mongo   10.3.0.248   27017/TCP
+CONTROLLER          CONTAINER(S)        IMAGE(S)   SELECTOR                 REPLICAS
+elastickube-mongo   elastickube-mongo   mongo      name=elastickube-mongo   1
+Pods Status:	1 Running / 0 Waiting / 0 Succeeded / 0 Failed
+CONTROLLER           CONTAINER(S)              IMAGE(S)                                    SELECTOR                  REPLICAS
+elastickube-server   elastickube-api           elasticbox/elastickube-api:latest           name=elastickube-server   1
+                     elastickube-charts        elasticbox/elastickube-charts:latest                                  
+                     elastickube-nginx         elasticbox/elastickube-nginx:latest                                   
+                     elastickube-diagnostics   elasticbox/elastickube-diagnostics:latest                             
+Pods Status:	1 Running / 0 Waiting / 0 Succeeded / 0 Failed
+IP:			10.3.0.73
+[0;32mKubernetes master[0m is running at [0;33mhttps://172.12.8.100:443[0m
+[0;32mHeapster[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/heapster[0m
+[0;32mKubeDNS[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kube-dns[0m
+[0;32mkubernetes-dashboard[0m is running at [0;33mhttps://172.12.8.100:443/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard[0m
+Error from server: services "elastickube-server" not found
+You have exposed your service on an external port on all nodes in your
+cluster.  If you want to expose this service to the external internet, you may
+need to set up firewall rules for the service port(s) (tcp:30060) to serve traffic.
+
+See http://releases.k8s.io/HEAD/docs/services-firewalls.md for more details.
+services/elastickube-server
+NAME                LABELS                   SELECTOR                 IP(S)        PORT(S)
+elastickube-mongo   name=elastickube-mongo   name=elastickube-mongo   10.3.0.248   27017/TCP
+CONTROLLER          CONTAINER(S)        IMAGE(S)   SELECTOR                 REPLICAS
+elastickube-mongo   elastickube-mongo   mongo      name=elastickube-mongo   1
+Pods Status:	1 Running / 0 Waiting / 0 Succeeded / 0 Failed
+CONTROLLER           CONTAINER(S)              IMAGE(S)                                    SELECTOR                  REPLICAS
+elastickube-server   elastickube-api           elasticbox/elastickube-api:latest           name=elastickube-server   1
+                     elastickube-charts        elasticbox/elastickube-charts:latest                                  
+                     elastickube-nginx         elasticbox/elastickube-nginx:latest                                   
+                     elastickube-diagnostics   elasticbox/elastickube-diagnostics:latest                             
+Pods Status:	1 Running / 0 Waiting / 0 Succeeded / 0 Failed
+IP:			10.3.0.20
