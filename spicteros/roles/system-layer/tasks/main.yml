@@ -1,21 +1,4 @@
 ---
-
-# create all certificates locally
-- name: create certificats folder
-  become: no
-  local_action: command mkdir -p {{ home_dir }}ssl
-  
-- name: create ca certificats
-  become: no
-  local_action: command ./../lib/init-ssl-ca {{ home_dir }}ssl 
-  
-- name: create api and controller certificats
-  become: no
-  local_action: command ./../lib/init-ssl {{ home_dir }}ssl apiserver controller IP.1={{ NODE_IP }},IP.2={{ CLUSTER_IP }}
-    
-- name: create admin and kube-admin certificats
-  become: no
-  local_action: command ./../lib/init-ssl {{ home_dir }}ssl admin kube-admin
    
  # now transfer certificates  
 - name: Creates directory
@@ -66,11 +49,7 @@
   copy: src=wait_for_kubesystem_is_up.sh dest=/opt/wait_for_kubesystem_is_up.sh mode=0755
 - command: sh /opt/wait_for_kubesystem_is_up.sh
   
-- name: install our first service
-  become: yes
-  command: helmc --home /opt/helm install kube-dashboard
-  ignore_errors: yes
+# install all kube-system services
+- name: install all kube-system services
+  include: system-services
 
-# and setup the kubernetes proxy
-# - name: start a kube proxy on port 80 in background
-#   command: "kubectl proxy --address= {{ NODE_IP }} --port=80 &"

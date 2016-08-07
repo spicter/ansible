@@ -1,3 +1,18 @@
 ---
 
-- name: create 
+# create all certificates locally
+- name: create certificats folder
+  become: no
+  local_action: command mkdir -p {{ home_dir }}ssl
+  
+- name: create ca certificats
+  become: no
+  local_action: command ./../lib/init-ssl-ca {{ home_dir }}ssl 
+  
+- name: create api and controller certificats
+  become: no
+  local_action: command ./../lib/init-ssl {{ home_dir }}ssl apiserver controller IP.1={{ NODE_IP }},IP.2={{ CLUSTER_IP }}
+    
+- name: create admin and kube-admin certificats
+  become: no
+  local_action: command ./../lib/init-ssl {{ home_dir }}ssl admin kube-admin

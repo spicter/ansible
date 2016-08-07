@@ -1,0 +1,21 @@
+---
+
+- name: install mongodb
+  become: yes
+  command: helmc --home /opt/helm install mongodb
+  ignore_errors: yes
+  
+- name: install mariadb
+  become: yes
+  command: helmc --home /opt/helm install mariadb
+  ignore_errors: yes
+  
+- name: install orientdb
+  become: yes
+  command: helmc --home /opt/helm install orientdb
+  ignore_errors: yes
+  
+- name: install postgresql
+  become: yes
+  command: helmc --home /opt/helm install postgresql
+  ignore_errors: yes
