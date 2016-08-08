@@ -44,6 +44,7 @@
   when: dir.stat.islnk is not defined
   
 - name: update helm repositories
+  become: yes
   command: helmc --home /opt/helm update 
 
 # wait until api-server is up

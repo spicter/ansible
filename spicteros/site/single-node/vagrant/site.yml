@@ -6,6 +6,6 @@
   roles: 
     - local-tasks
     - coreos-bootstrap
-#    - system-layer
+    - system-layer
 #    - data-layer
   become: true
