@@ -9,6 +9,8 @@ set -e
 #
 ##############################################################################
 
+export KUBE_LOGGING_DESTINATION=elasticsearch
+export KUBE_ENABLE_NODE_LOGGING=true
 
 # List of etcd servers (http://ip:port), comma separated
 export ETCD_ENDPOINTS="http://127.0.0.1:2379"
