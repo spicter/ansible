@@ -49,7 +49,7 @@
 
 # wait until api-server is up
 - name: wait until api-server is up
-  wait_for: port=8080 delay=10
+  wait_for: port=8080 delay=5
     
 - name: wait until kube-system services are up
   copy: src=wait_for_kubesystem_is_up.sh dest=/opt/wait_for_kubesystem_is_up.sh mode=0755
