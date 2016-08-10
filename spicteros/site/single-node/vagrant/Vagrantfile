@@ -6,8 +6,6 @@ CLUSTER_IP="10.3.0.1"
 
 NODE_MEMORY_SIZE = 9216
 
-RUNTIME_CONFIG="api/v1=true,extensions/v1beta1/daemonsets=true"
-
 Vagrant.configure("2") do |config|
 
   if Vagrant.has_plugin?("vagrant-proxyconf")
