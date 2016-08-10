@@ -59,7 +59,7 @@ function deploy_multi_local () {
 
 #
 # ------------------ Main -----------------
-rm -Rf $HOME/.vagrant.d
+
 case $target in
 "local-single")
    deploy_single_local
