@@ -33,7 +33,7 @@ function deploy_single_local () {
      fi
   fi
   cd $bin_dir
-  ansible-playbook $home_dir"/site.yml" --extra-vars "home_dir=$home_dir/"
+  ansible-playbook $home_dir"/site.yml" --extra-vars "home_dir=$home_dir/ deploy_env=local_single"
 }
 
 #
@@ -54,7 +54,7 @@ function deploy_multi_local () {
      fi
   fi
   cd $bin_dir
-#  ansible-playbook $home_dir"/site.yml" --extra-vars "home_dir=$home_dir/"
+  ansible-playbook $home_dir"/site.yml" --extra-vars "home_dir=$home_dir/ deploy_env=local_multi"
 }
 
 #

@@ -1,5 +1,10 @@
 ---
 
+- name: install fluentd daemonSet
+  become: yes
+  command: helmc --home /opt/helm install fluentd
+  ignore_errors: yes
+  
 #- name: install elastic-kube
 #  become: yes
 #  command: helmc --home /opt/helm install elastic-kube
@@ -9,7 +14,7 @@
 #  become: yes
 #  command: helmc --home /opt/helm install kube-dashboard
 #  ignore_errors: yes
-
+  
 - name: install kube-logging
   become: yes
   command: helmc --home /opt/helm install elasticsearch

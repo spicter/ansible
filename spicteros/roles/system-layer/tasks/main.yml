@@ -27,6 +27,7 @@
   template: src=kubeconfig.j2 dest=/tmp/kubeconfig
   environment: 
     KUBECONFIG: :/tmp/kubeconfig
+    
 - command: kubectl config use-context single
 
 # install helmc and our helm repository 

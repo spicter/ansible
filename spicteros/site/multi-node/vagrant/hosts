@@ -1,10 +1,22 @@
 [all]
-single01 ansible_host=172.12.8.100
+etcd01 ansible_host=172.12.8.51
+master01 ansible_host=172.12.8.101
+worker01 ansible_host=172.12.8.201
+worker02 ansible_host=172.12.8.202
+worker03 ansible_host=172.12.8.203
+
+[etcd2]
+etcd01
 
 [master]
-single01
+master01
 
-[all:vars]
+[worker]
+worker01
+worker02
+worker03
+
+[master:vars]
 # http_proxy = Environment=http_proxy=http://proxy.ct-dmz.cardtech.de:8080
 # https_proxy = Environment=http_proxy=http://proxy.ct-dmz.cardtech.de:8080
 # no_proxy = Environment=no_proxy=localhost,127.0.0.1

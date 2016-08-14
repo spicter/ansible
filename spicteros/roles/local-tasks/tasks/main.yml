@@ -1,5 +1,15 @@
 ---
+# test proxy
 
+#- name: test whether we are behind a proxy
+#  become: root
+#  local_action: uri url=http://proxy.ct-dmz.cardtech.de:8080 return_content=yes
+#  register: proxy
+
+#- name: hallo
+#  local_action: command has_proxy = true
+#  when: "'cardtech' in proxy.content"
+    
 # create all certificates locally
 - name: create certificats folder
   become: no
@@ -16,3 +26,11 @@
 - name: create admin and kube-admin certificats
   become: no
   local_action: command ./../lib/init-ssl {{ home_dir }}ssl admin kube-admin
+  
+# def provisionMachineSSL(machine,certBaseName,cn,ipAddrs)
+#  tarFile = "ssl/#{cn}.tar"
+#  ipString = ipAddrs.map.with_index { |ip, i| "IP.#{i+1}=#{ip}"}.join(",")
+#  system("./../../../lib/init-ssl ssl #{certBaseName} #{cn} #{ipString}") or abort("failed generating #{cn} SSL artifacts")
+#  machine.vm.provision :file, :source => tarFile, :destination => "/tmp/ssl.tar"
+#  machine.vm.provision :shell, :inline => "mkdir -p /etc/kubernetes/ssl && tar -C /etc/kubernetes/ssl -xf /tmp/ssl.tar", :privileged => true
+# end
