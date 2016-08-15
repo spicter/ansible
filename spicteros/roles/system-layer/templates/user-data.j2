@@ -11,8 +11,7 @@ set -e
 #
 ##############################################################################
 
-export KUBE_LOGGING_DESTINATION=elasticsearch
-export KUBE_ENABLE_NODE_LOGGING=true
+export DOCKER_OPTS=$DOCKER_OPTS:"--log-driver=json-file"
 
 # List of etcd servers (http://ip:port), comma separated
 export ETCD_ENDPOINTS="http://127.0.0.1:2379"
@@ -112,8 +111,7 @@ Environment="RKT_OPTS=--volume dns,kind=host,source=/etc/resolv.conf \
   --mount volume=dns,target=/etc/resolv.conf \
   --volume=rkt,kind=host,source=/opt/bin/host-rkt \
   --mount volume=rkt,target=/usr/bin/rkt \  
-  --volume var-log,kind=host,source=/var/log \ 
-  --mount volume=var-log,target=/var/log \
+  --volume var-log,kind=host,source=/var/log --mount volume=var-log,target=/var/log \
   --volume var-lib-rkt,kind=host,source=/var/lib/rkt \
   --mount volume=var-lib-rkt,target=/var/lib/rkt \
   --volume=stage,kind=host,source=/tmp \
@@ -921,7 +919,7 @@ After=flanneld.service
 {{ no_proxy }}
 
 ExecStart=
-ExecStart=/usr/lib/coreos/dockerd daemon --host=fd:// \$DOCKER_OPTS \$DOCKER_CGROUPS \$DOCKER_OPT_MTU
+ExecStart=/usr/lib/coreos/dockerd daemon --host=fd:// \$DOCKER_OPTS:"--log-driver=json-file" \$DOCKER_CGROUPS \$DOCKER_OPT_MTU
 EOF
     fi
 
