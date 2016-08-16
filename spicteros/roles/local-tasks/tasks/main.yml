@@ -1,15 +1,5 @@
 ---
-# test proxy
-
-#- name: test whether we are behind a proxy
-#  become: root
-#  local_action: uri url=http://proxy.ct-dmz.cardtech.de:8080 return_content=yes
-#  register: proxy
-
-#- name: hallo
-#  local_action: command has_proxy = true
-#  when: "'cardtech' in proxy.content"
-    
+     
 # create all certificates locally
 - name: create certificats folder
   become: no

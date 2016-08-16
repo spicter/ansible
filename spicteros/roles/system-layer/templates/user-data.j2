@@ -97,9 +97,11 @@ function init_templates {
 [Service]
 
 # spicterOS
-{{ http_proxy }}
-{{ https_proxy }}
-{{ no_proxy }}
+{% if proxy_url is defined %}
+Environment=http_proxy={{ proxy_url }}
+Environment=https_proxy={{ proxy_url }}
+no_proxy = Environment=no_proxy=localhost,127.0.0.1
+{% endif %}
 
 ExecStartPre=/usr/bin/mkdir -p /var/log/containers
 # end spicterOS
@@ -169,9 +171,11 @@ After=network-online.target
 Before=rkt-api.service
 
 [Service]
-{{ http_proxy }}
-{{ https_proxy }}
-{{ no_proxy }}
+{% if proxy_url is defined %}
+Environment=http_proxy={{ proxy_url }}
+Environment=https_proxy={{ proxy_url }}
+no_proxy = Environment=no_proxy=localhost,127.0.0.1
+{% endif %}
 
 Type=oneshot
 RemainAfterExit=yes
@@ -191,9 +195,11 @@ EOF
 Before=kubelet.service
 
 [Service]
-{{ http_proxy }}
-{{ https_proxy }}
-{{ no_proxy }}
+{% if proxy_url is defined %}
+Environment=http_proxy={{ proxy_url }}
+Environment=https_proxy={{ proxy_url }}
+no_proxy = Environment=no_proxy=localhost,127.0.0.1
+{% endif %}
 
 ExecStart=/usr/bin/rkt api-service
 Restart=always
@@ -215,9 +221,11 @@ Requires=network-online.target
 After=network-online.target
 
 [Service]
-{{ http_proxy }}
-{{ https_proxy }}
-{{ no_proxy }}
+{% if proxy_url is defined %}
+Environment=http_proxy={{ proxy_url }}
+Environment=https_proxy={{ proxy_url }}
+no_proxy = Environment=no_proxy=localhost,127.0.0.1
+{% endif %}
 
 Slice=machine.slice
 Environment=CALICO_DISABLE_FILE_LOGGING=true
@@ -898,9 +906,11 @@ EOF
         mkdir -p $(dirname $TEMPLATE)
         cat << EOF > $TEMPLATE
 [Service]
-{{ http_proxy }}
-{{ https_proxy }}
-{{ no_proxy }}
+{% if proxy_url is defined %}
+Environment=http_proxy={{ proxy_url }}
+Environment=https_proxy={{ proxy_url }}
+no_proxy = Environment=no_proxy=localhost,127.0.0.1
+{% endif %}
 
 ExecStartPre=/usr/bin/ln -sf /etc/flannel/options.env /run/flannel/options.env
 EOF
@@ -915,9 +925,11 @@ EOF
 Requires=flanneld.service
 After=flanneld.service
 [Service]
-{{ http_proxy }}
-{{ https_proxy }}
-{{ no_proxy }}
+{% if proxy_url is defined %}
+Environment=http_proxy={{ proxy_url }}
+Environment=https_proxy={{ proxy_url }}
+no_proxy = Environment=no_proxy=localhost,127.0.0.1
+{% endif %}
 
 ExecStart=
 ExecStart=/usr/lib/coreos/dockerd daemon --host=fd:// \$DOCKER_OPTS:"--log-driver=json-file" \$DOCKER_CGROUPS \$DOCKER_OPT_MTU

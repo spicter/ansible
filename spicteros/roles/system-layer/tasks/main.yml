@@ -1,4 +1,22 @@
 ---
+
+# detect proxy
+- name: copy proxy detection script
+  become: yes
+  copy: src=detect_proxy.sh dest=/opt/detect_proxy.sh mode=0755
+  
+- name: test proxy
+  become: yes
+  shell: /opt/detect_proxy.sh
+  register: proxy_result
+
+- name: set
+  set_fact:
+    has_proxy: true
+    proxy_url: "{{ proxy_result.stdout }}"
+  when: "'http://' in proxy_result.stdout"
+  
+- debug: msg="{{ proxy_url }}, {{ has_proxy }} "
    
  # now transfer certificates  
 - name: Creates directory
