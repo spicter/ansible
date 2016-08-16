@@ -17,10 +17,3 @@
   become: no
   local_action: command ./../lib/init-ssl {{ home_dir }}ssl admin kube-admin
   
-# def provisionMachineSSL(machine,certBaseName,cn,ipAddrs)
-#  tarFile = "ssl/#{cn}.tar"
-#  ipString = ipAddrs.map.with_index { |ip, i| "IP.#{i+1}=#{ip}"}.join(",")
-#  system("./../../../lib/init-ssl ssl #{certBaseName} #{cn} #{ipString}") or abort("failed generating #{cn} SSL artifacts")
-#  machine.vm.provision :file, :source => tarFile, :destination => "/tmp/ssl.tar"
-#  machine.vm.provision :shell, :inline => "mkdir -p /etc/kubernetes/ssl && tar -C /etc/kubernetes/ssl -xf /tmp/ssl.tar", :privileged => true
-# end

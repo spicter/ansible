@@ -5,6 +5,8 @@ single01 ansible_host=172.12.8.100
 single01
 
 [master:vars]
+# proxy setting will be automatically detected and set.
+# do not change manually !
 has_proxy = false
 proxy_url =
 
