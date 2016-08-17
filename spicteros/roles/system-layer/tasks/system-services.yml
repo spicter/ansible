@@ -3,6 +3,8 @@
 - name: install fluentd daemonSet
   become: yes
   command: helmc --home /opt/helm install fluentd
+  environment:
+    KUBECONFIG: /opt/config/kubeconfig
   ignore_errors: yes
   
 #- name: install elastic-kube
@@ -13,9 +15,13 @@
 - name: install kube-logging
   become: yes
   command: helmc --home /opt/helm install kube-logging
+  environment:
+    KUBECONFIG: /opt/config/kubeconfig
   ignore_errors: yes
   
 - name: install kube-monitoring
   become: yes
   command: helmc --home /opt/helm install kube-monitoring
+  environment:
+    KUBECONFIG: /opt/config/kubeconfig
   ignore_errors: yes

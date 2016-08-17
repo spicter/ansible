@@ -48,11 +48,11 @@
   copy: src=kubectl dest=/opt/bin/kubectl mode=0755
   
 - name: configure kubectl
+  become: yes
   template: src=kubeconfig.j2 dest=/opt/config/kubeconfig
-  environment: 
-    KUBECONFIG: :/opt/config/kubeconfig
     
-- command: kubectl config use-context single
+- command: kubectl config use-context single --kubeconfig=/opt/config/kubeconfig
+  become: yes
   args:
     chdir: /opt/config
 
@@ -80,7 +80,7 @@
     
 - name: wait until kube-system services are up
   copy: src=wait_for_kubesystem_is_up.sh dest=/opt/script/wait_for_kubesystem_is_up.sh mode=0755
-- command: sh /opt/script/wait_for_kubesystem_is_up.sh
+# - command: sh /opt/script/wait_for_kubesystem_is_up.sh
   
 # install all kube-system services
 - name: install all kube-system services
