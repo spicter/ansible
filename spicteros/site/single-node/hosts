@@ -5,13 +5,10 @@ single01 ansible_host=144.76.186.4 ansible_port=2014 ansible_user=core
 single01
 
 [all:vars]
-# http_proxy = Environment=http_proxy=http://proxy.ct-dmz.cardtech.de:8080
-# https_proxy = Environment=http_proxy=http://proxy.ct-dmz.cardtech.de:8080
-# no_proxy = Environment=no_proxy=localhost,127.0.0.1
-
-http_proxy = 
-https_proxy = 
-no_proxy =
+# proxy setting will be automatically detected and set.
+# do not change manually !
+has_proxy = false
+proxy_url =
 
 NODE_IP = "10.2.1.14"
 CLUSTER_IP = "10.3.0.1"

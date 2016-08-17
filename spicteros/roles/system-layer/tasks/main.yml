@@ -72,7 +72,8 @@
     
 - name: wait until kube-system services are up
   copy: src=wait_for_kubesystem_is_up.sh dest=/opt/wait_for_kubesystem_is_up.sh mode=0755
-- command: sh /opt/wait_for_kubesystem_is_up.sh
+
+# - command: sh /opt/wait_for_kubesystem_is_up.sh
   
 # install all kube-system services
 - name: install all kube-system services
