@@ -1,13 +1,16 @@
 ---
 
 # detect proxy
+- name: Creates directory
+  file: path=/opt/script state=directory
+  
 - name: copy proxy detection script
   become: yes
-  copy: src=detect_proxy.sh dest=/opt/detect_proxy.sh mode=0755
+  copy: src=detect_proxy.sh dest=/opt/script/detect_proxy.sh mode=0755
   
 - name: test proxy
   become: yes
-  shell: /opt/detect_proxy.sh
+  shell: /opt/script/detect_proxy.sh
   register: proxy_result
 
 - name: set
@@ -37,16 +40,21 @@
   command: coreos-cloudinit --from-file=/tmp/user-data
   
 # now install and configure kubectl  
+- name: Creates directory
+  file: path=/opt/config state=directory
+  
 - name: install kubectl
   become: yes
   copy: src=kubectl dest=/opt/bin/kubectl mode=0755
   
 - name: configure kubectl
-  template: src=kubeconfig.j2 dest=/tmp/kubeconfig
+  template: src=kubeconfig.j2 dest=/opt/config/kubeconfig
   environment: 
-    KUBECONFIG: :/tmp/kubeconfig
+    KUBECONFIG: :/opt/config/kubeconfig
     
 - command: kubectl config use-context single
+  args:
+    chdir: /opt/config
 
 # install helmc and our helm repository 
 - name: install helmc
@@ -71,8 +79,8 @@
   wait_for: port=8080 delay=5
     
 - name: wait until kube-system services are up
-  copy: src=wait_for_kubesystem_is_up.sh dest=/opt/wait_for_kubesystem_is_up.sh mode=0755
-- command: sh /opt/wait_for_kubesystem_is_up.sh
+  copy: src=wait_for_kubesystem_is_up.sh dest=/opt/script/wait_for_kubesystem_is_up.sh mode=0755
+- command: sh /opt/script/wait_for_kubesystem_is_up.sh
   
 # install all kube-system services
 - name: install all kube-system services
