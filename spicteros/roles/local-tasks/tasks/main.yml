@@ -1,6 +1,7 @@
 ---
      
 # create all certificates locally
+# system("mkdir -p ssl && ./../../lib/init-ssl-ca ssl") or abort ("failed generating SSL artifacts")
 - name: create certificats folder
   become: no
   local_action: command mkdir -p {{ home_dir }}ssl
@@ -9,11 +10,28 @@
   become: no
   local_action: command ./../lib/init-ssl-ca {{ home_dir }}ssl 
   
+# system("./../../lib/init-ssl ssl admin kube-admin") or abort("failed generating admin SSL artifacts")    
+- name: create admin and kube-admin certificats
+  become: no
+  local_action: command ./../lib/init-ssl {{ home_dir }}ssl admin kube-admin  
+  
 - name: create api and controller certificats
   become: no
   local_action: command ./../lib/init-ssl {{ home_dir }}ssl apiserver controller IP.1={{ NODE_IP }},IP.2={{ CLUSTER_IP }}
-    
-- name: create admin and kube-admin certificats
-  become: no
-  local_action: command ./../lib/init-ssl {{ home_dir }}ssl admin kube-admin
-  
+
+# multinode
+
+# def provisionMachineSSL(machine,certBaseName,cn,ipAddrs)
+#  tarFile = "ssl/#{cn}.tar"
+#  ipString = ipAddrs.map.with_index { |ip, i| "IP.#{i+1}=#{ip}"}.join(",")
+#  system("./../../lib/init-ssl ssl #{certBaseName} #{cn} #{ipString}") or abort("failed generating #{cn} SSL artifacts")
+#  machine.vm.provision :file, :source => tarFile, :destination => "/tmp/ssl.tar"
+#  machine.vm.provision :shell, :inline => "mkdir -p /etc/kubernetes/ssl && tar -C /etc/kubernetes/ssl -xf /tmp/ssl.tar", :privileged => true
+# end  
+
+# master
+# provisionMachineSSL(controller,"apiserver","kube-apiserver-#{controllerIP}",controllerIPs)
+
+# worker
+# provisionMachineSSL(worker,"worker","kube-worker-#{workerIP}",[workerIP])
+# ansible_default_ipv4.address
