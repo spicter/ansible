@@ -3,7 +3,7 @@
   raw: stat /opt/bin/.bootstrapped
   register: need_bootstrap
   ignore_errors: True
-
+- debug: msg="{{ ansible_default_ipv4 }}"
 - name: Bootstrap | Run bootstrap.sh
   script: bootstrap.sh
   when: need_bootstrap | failed
